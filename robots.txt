@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cyriac-pullan.github.io/wordle-timeshift/sitemap.xml 
