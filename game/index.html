@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Wordle: TimeShift Edition</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Wordle: TimeShift Edition</h1>
+        </header>
+
+        <div id="rules-modal" class="modal">
+            <div class="modal-content">
+                <h2>Game Rules</h2>
+                <div class="rules-list">
+                    <h3>How to Play</h3>
+                    <ul>
+                        <li>Guess the 5-letter word in 6 tries</li>
+                        <li>Each guess must be a valid 5-letter word</li>
+                        <li>After each guess, the color of the tiles will change to show how close your guess was</li>
+                    </ul>
+                    
+                    <h3>Tile Colors</h3>
+                    <ul>
+                        <li>🟩 Green: Letter is in the correct spot</li>
+                        <li>🟨 Yellow: Letter is in the word but wrong spot</li>
+                        <li>⬜ Gray: Letter is not in the word</li>
+                    </ul>
+                    
+                    <h3>TimeShift Rules</h3>
+                    <ul>
+                        <li>⏳ Word changes every minute</li>
+                        <li>📝 Keep your guess history</li>
+                        <li>🔄 Previous guesses re-evaluated</li>
+                        <li>🎯 Continue from current guess</li>
+                        <li>⚠️ Game ends after 3 word changes + 1 minute</li>
+                    </ul>
+                </div>
+                <button id="start-game-from-rules">Start Game</button>
+            </div>
+        </div>
+
+        <div class="game-info" style="display: none;">
+            <div class="timer">60</div>
+            <div class="stats">
+                <div>Wins: <span id="wins">0</span></div>
+                <div>Streak: <span id="streak">0</span></div>
+                <div>Changes: <span id="word-changes">0/3</span></div>
+            </div>
+        </div>
+
+        <div class="message"></div>
+
+        <div id="board" class="board" style="display: none;"></div>
+
+        <div class="keyboard" style="display: none;">
+            <div class="keyboard-row">
+                <button class="key" data-key="Q">Q</button>
+                <button class="key" data-key="W">W</button>
+                <button class="key" data-key="E">E</button>
+                <button class="key" data-key="R">R</button>
+                <button class="key" data-key="T">T</button>
+                <button class="key" data-key="Y">Y</button>
+                <button class="key" data-key="U">U</button>
+                <button class="key" data-key="I">I</button>
+                <button class="key" data-key="O">O</button>
+                <button class="key" data-key="P">P</button>
+            </div>
+            <div class="keyboard-row">
+                <button class="key" data-key="A">A</button>
+                <button class="key" data-key="S">S</button>
+                <button class="key" data-key="D">D</button>
+                <button class="key" data-key="F">F</button>
+                <button class="key" data-key="G">G</button>
+                <button class="key" data-key="H">H</button>
+                <button class="key" data-key="J">J</button>
+                <button class="key" data-key="K">K</button>
+                <button class="key" data-key="L">L</button>
+            </div>
+            <div class="keyboard-row">
+                <button class="key" data-key="ENTER">Enter</button>
+                <button class="key" data-key="Z">Z</button>
+                <button class="key" data-key="X">X</button>
+                <button class="key" data-key="C">C</button>
+                <button class="key" data-key="V">V</button>
+                <button class="key" data-key="B">B</button>
+                <button class="key" data-key="N">N</button>
+                <button class="key" data-key="M">M</button>
+                <button class="key" data-key="BACKSPACE">⌫</button>
+            </div>
+        </div>
+
+        <div class="rules">
+            <h2>Rules & Twists</h2>
+            <ul>
+                <li>⏳ Word changes every minute</li>
+                <li>📝 Keep your guess history</li>
+                <li>🔄 Previous guesses re-evaluated</li>
+                <li>🎯 Continue from current guess</li>
+            </ul>
+        </div>
+
+        <div class="controls">
+            <button id="start-game">Start Game</button>
+            <button id="new-game" style="display: none;">New Game</button>
+            <button id="play-again" style="display: none;">Play Again</button>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal-title"></h2>
+            <p id="modal-message"></p>
+            <button id="modal-close">Close</button>
+        </div>
+    </div>
+
+    <div class="word-change-notice" style="display: none;">
+        <div class="word-change-icon">🔄</div>
+        <div class="word-change-text">Word Changed!</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
